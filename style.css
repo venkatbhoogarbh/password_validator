@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background: #0f172a;
-  color: #fff;
+  color: #ffffff;
   margin: 0;
   padding: 20px;
 }
@@ -32,8 +32,8 @@ input, button {
 
 button {
   background: #22c55e;
-  cursor: pointer;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .options label {
@@ -56,8 +56,6 @@ button {
 }
 
 input[type="range"] {
-  width: 100%;
-  margin-top: 10px;
   accent-color: #22c55e;
 }
 
@@ -65,4 +63,3 @@ input[type="range"] {
   font-weight: bold;
   color: #22c55e;
 }
-

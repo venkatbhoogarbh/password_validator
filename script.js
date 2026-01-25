@@ -61,7 +61,35 @@ function generate() {
   }
 
   document.getElementById("generatedPassword").value = password;
+    document.getElementById("copyBtn").style.display = "block";
 }
+}
+// ---------- COPY PASSWORD ----------
+function copyPassword() {
+  const passwordField = document.getElementById("generatedPassword");
+  const copyBtn = document.getElementById("copyBtn");
+  
+  if (passwordField.value) {
+    navigator.clipboard.writeText(passwordField.value).then(() => {
+      // Change button text temporarily
+      const originalText = copyBtn.innerHTML;
+      copyBtn.innerHTML = "✅ Copied!";
+      copyBtn.style.background = "#22c55e";
+      
+      setTimeout(() => {
+        copyBtn.innerHTML = originalText;
+        copyBtn.style.background = "#3b82f6";
+      }, 2000);
+    });
+  }
+}
+
+// Show/hide copy button when password changes
+document.getElementById("generatedPassword").addEventListener("input", function() {
+  const copyBtn = document.getElementById("copyBtn");
+  copyBtn.style.display = this.value ? "block" : "none";
+});
+
 
 // ---------- PWA ----------
 if ("serviceWorker" in navigator) {

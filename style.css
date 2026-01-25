@@ -117,3 +117,20 @@ button {
   margin-top: 8px;
   font-weight: 500;
 }
+
+#copyBtn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#copyBtn:hover {
+  background: #2563eb;
+}

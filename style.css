@@ -8,78 +8,103 @@ body {
   color: #ffffff;
   margin: 0;
   padding: 20px;
-  box-sizing: border-box;
 }
 
 .container {
   max-width: 420px;
-  margin: 0 auto;  /* Fixed: was just "auto" */
+  margin: 0 auto;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;  /* Added spacing */
+  margin-bottom: 25px;
 }
 
 .card {
   background: #1e293b;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  width: 100%;  /* Ensure full width */
+  padding: 25px;  /* Increased from 20px */
+  border-radius: 12px;
+  margin-bottom: 25px;
 }
 
-input, button {
+/* FIX 1 & 4: Input boxes - Add background & padding */
+input[type="password"],
+input[type="text"] {
   width: 100%;
-  padding: 12px;
-  margin-top: 10px;
+  padding: 14px 16px;  /* More internal padding */
+  margin-top: 12px;
+  border-radius: 8px;
+  border: 2px solid #475569;  /* Gray border for separation */
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* FIX 2: Slider spacing */
+input[type="range"] {
+  width: 100%;
+  height: 8px;
+  padding: 0;
+  margin: 12px 0 16px 0;  /* Top/bottom spacing */
   border-radius: 5px;
-  border: none;
-  box-sizing: border-box;  /* CRITICAL: prevents overflow */
+  background: #475569;
+  accent-color: #22c55e;
+  -webkit-appearance: none;
 }
 
-button {
-  background: #22c55e;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 15px;  /* Extra spacing before button */
-}
-
+/* FIX 3: Checkboxes alignment */
 .options {
-  margin-top: 15px;
+  margin: 20px 0 15px 0;  /* Proper vertical spacing */
 }
 
 .options label {
-  display: block;
-  margin-top: 8px;  /* Fixed: was 5px, inconsistent */
-  padding: 0;  /* Remove any padding causing shift */
+  display: flex;
+  align-items: center;  /* Vertical center checkboxes */
+  margin-top: 12px;  /* Consistent spacing */
+  gap: 12px;  /* Space between checkbox and text */
+  padding: 4px 0;
+}
+
+.options input[type="checkbox"] {
+  width: auto;  /* Don't stretch checkboxes */
+  margin: 0;  /* Remove default margins */
+  transform: scale(1.2);  /* Slightly larger for touch */
+  accent-color: #22c55e;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  border-radius: 8px;
+  border: none;
+  background: #22c55e;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .bar {
   width: 100%;
-  height: 10px;
+  height: 12px;
   background: #334155;
-  border-radius: 5px;
-  margin-top: 10px;
+  border-radius: 6px;
+  margin-top: 12px;
+  padding: 2px;
 }
 
 #strengthBar {
   height: 100%;
   width: 0%;
-  border-radius: 5px;
-  transition: all 0.3s ease;  /* Smooth animation */
-}
-
-input[type="range"] {
-  width: 100%;  /* CRITICAL: was missing */
-  height: 6px;
-  accent-color: #22c55e;
-  margin: 8px 0;  /* Center vertically */
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
 #lengthValue {
   font-weight: bold;
   color: #22c55e;
+  font-size: 1.1rem;
 }
 
 .length-value {
@@ -88,19 +113,7 @@ input[type="range"] {
   font-size: 1.1rem;
 }
 
-label {
-  display: block;  /* Ensure labels take full width */
-  margin-bottom: 5px;
-}
-
-/* Tablet/Laptop Responsive Fix */
-@media (max-width: 768px) {
-  body {
-    padding: 15px;
-  }
-  
-  .container {
-    max-width: 100%;
-    padding: 0 10px;
-  }
+#strengthText {
+  margin-top: 8px;
+  font-weight: 500;
 }

@@ -2,6 +2,17 @@ const passwordInput = document.getElementById("passwordInput");
 const strengthText = document.getElementById("strengthText");
 const strengthBar = document.getElementById("strengthBar");
 
+const lengthSlider = document.getElementById("length");
+const lengthValue = document.getElementById("lengthValue");
+
+// Show initial slider value
+lengthValue.textContent = lengthSlider.value;
+
+// Update slider value live
+lengthSlider.addEventListener("input", () => {
+  lengthValue.textContent = lengthSlider.value;
+});
+
 passwordInput.addEventListener("input", () => {
   const pwd = passwordInput.value;
   let score = 0;
@@ -21,7 +32,7 @@ passwordInput.addEventListener("input", () => {
 });
 
 function generate() {
-  const length = document.getElementById("length").value;
+  const length = parseInt(lengthSlider.value);
   const upper = document.getElementById("upper").checked;
   const lower = document.getElementById("lower").checked;
   const number = document.getElementById("number").checked;
@@ -33,7 +44,10 @@ function generate() {
   if (number) chars += "0123456789";
   if (symbol) chars += "!@#$%^&*()_+";
 
-  if (!chars) return alert("Select at least one option!");
+  if (!chars) {
+    alert("Select at least one option!");
+    return;
+  }
 
   let password = "";
   for (let i = 0; i < length; i++) {
@@ -43,7 +57,7 @@ function generate() {
   document.getElementById("generatedPassword").value = password;
 }
 
-
+// PWA support (keep this)
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("sw.js");
 }

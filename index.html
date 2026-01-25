@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <h1>Password Tool 🔐</h1>
+
+    <!-- Password Strength Checker -->
+    <div class="card">
+      <h2>Check Password Strength</h2>
+      <input type="password" id="passwordInput" placeholder="Enter password">
+      <div id="strengthText"></div>
+      <div class="bar">
+        <div id="strengthBar"></div>
+      </div>
+    </div>
+
+    <!-- Password Generator -->
+    <div class="card">
+      <h2>Generate Password</h2>
+
+      <label>Length:
+        <input type="number" id="length" value="12" min="6" max="32">
+      </label>
+
+      <div class="options">
+        <label><input type="checkbox" id="upper" checked> Uppercase</label>
+        <label><input type="checkbox" id="lower" checked> Lowercase</label>
+        <label><input type="checkbox" id="number" checked> Numbers</label>
+        <label><input type="checkbox" id="symbol"> Symbols</label>
+      </div>
+
+      <button onclick="generate()">Generate</button>
+      <input type="text" id="generatedPassword" readonly>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+  
+</html>

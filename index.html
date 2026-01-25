@@ -27,22 +27,16 @@
 
       <label>
         Password Length:
-        <span id="lengthValue">12</span>
+        <span id="lengthValue"></span>
       </label>
 
-      <input
-        type="range"
-        id="length"
-        min="6"
-        max="32"
-        value="12"
-      />
+      <input type="range" id="length" min="10" max="60" value="15"/>
 
       <div class="options">
         <label><input type="checkbox" id="upper" checked /> Uppercase</label>
         <label><input type="checkbox" id="lower" checked /> Lowercase</label>
         <label><input type="checkbox" id="number" checked /> Numbers</label>
-        <label><input type="checkbox" id="symbol" /> Symbols</label>
+        <label><input type="checkbox" id="symbol" checked /> Symbols</label>
       </div>
 
       <button onclick="generate()">Generate</button>

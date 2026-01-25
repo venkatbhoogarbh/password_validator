@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Password Tool</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
+
+  <div class="container">
     <h1>Password Tool 🔐</h1>
 
     <!-- Password Strength Checker -->
     <div class="card">
       <h2>Check Password Strength</h2>
-      <input type="password" id="passwordInput" placeholder="Enter password">
+      <input type="password" id="passwordInput" placeholder="Enter password" />
       <div id="strengthText"></div>
       <div class="bar">
         <div id="strengthBar"></div>
@@ -25,27 +25,32 @@
     <div class="card">
       <h2>Generate Password</h2>
 
-      <label>Length:
-        <label>
-  Password Length: <span id="lengthValue">12</span>
-</label>
-<input type="range" id="length" min="8" max="60" value="15">
-
+      <label>
+        Password Length:
+        <span id="lengthValue">12</span>
       </label>
 
+      <input
+        type="range"
+        id="length"
+        min="6"
+        max="32"
+        value="12"
+      />
+
       <div class="options">
-        <label><input type="checkbox" id="upper" checked> Uppercase</label>
-        <label><input type="checkbox" id="lower" checked> Lowercase</label>
-        <label><input type="checkbox" id="number" checked> Numbers</label>
-        <label><input type="checkbox" id="symbol" checked> Symbols</label>
+        <label><input type="checkbox" id="upper" checked /> Uppercase</label>
+        <label><input type="checkbox" id="lower" checked /> Lowercase</label>
+        <label><input type="checkbox" id="number" checked /> Numbers</label>
+        <label><input type="checkbox" id="symbol" /> Symbols</label>
       </div>
 
       <button onclick="generate()">Generate</button>
-      <input type="text" id="generatedPassword" readonly>
+      <input type="text" id="generatedPassword" readonly />
     </div>
   </div>
 
+  <!-- SCRIPT MUST BE AT BOTTOM -->
   <script src="script.js"></script>
 </body>
-  
 </html>

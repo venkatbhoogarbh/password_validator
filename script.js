@@ -1,19 +1,19 @@
-// Slider elements
+// ---------- SLIDER ----------
 const lengthSlider = document.getElementById("length");
 const lengthValue = document.getElementById("lengthValue");
 
-// Update slider value display
+// Display slider value
 function updateLengthValue() {
   lengthValue.textContent = lengthSlider.value;
 }
 
-// Initial load
+// Initial display
 updateLengthValue();
 
-// Update on slider move
+// Update on move
 lengthSlider.addEventListener("input", updateLengthValue);
 
-// Password strength checker
+// ---------- PASSWORD STRENGTH ----------
 const passwordInput = document.getElementById("passwordInput");
 const strengthText = document.getElementById("strengthText");
 const strengthBar = document.getElementById("strengthBar");
@@ -36,7 +36,7 @@ passwordInput.addEventListener("input", () => {
   strengthBar.style.background = colors[score - 1] || "red";
 });
 
-// Password generator
+// ---------- PASSWORD GENERATOR ----------
 function generate() {
   const length = parseInt(lengthSlider.value);
   const upper = document.getElementById("upper").checked;
@@ -61,4 +61,9 @@ function generate() {
   }
 
   document.getElementById("generatedPassword").value = password;
+}
+
+// ---------- PWA ----------
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
 }

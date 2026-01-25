@@ -63,3 +63,16 @@ input[type="range"] {
   font-weight: bold;
   color: #22c55e;
 }
+
+.length-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.length-value {
+  font-weight: bold;
+  color: #6fd26f;
+  font-size: 1.1rem;
+}

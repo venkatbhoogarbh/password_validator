@@ -1,18 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   background: #0f172a;
   color: #ffffff;
   margin: 0;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .container {
   max-width: 420px;
-  margin: auto;
+  margin: 0 auto;  /* Fixed: was just "auto" */
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 20px;  /* Added spacing */
 }
 
 .card {
@@ -20,25 +26,33 @@ h1 {
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
+  width: 100%;  /* Ensure full width */
 }
 
 input, button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin-top: 10px;
   border-radius: 5px;
   border: none;
+  box-sizing: border-box;  /* CRITICAL: prevents overflow */
 }
 
 button {
   background: #22c55e;
   font-weight: bold;
   cursor: pointer;
+  margin-top: 15px;  /* Extra spacing before button */
+}
+
+.options {
+  margin-top: 15px;
 }
 
 .options label {
   display: block;
-  margin-top: 5px;
+  margin-top: 8px;  /* Fixed: was 5px, inconsistent */
+  padding: 0;  /* Remove any padding causing shift */
 }
 
 .bar {
@@ -53,10 +67,14 @@ button {
   height: 100%;
   width: 0%;
   border-radius: 5px;
+  transition: all 0.3s ease;  /* Smooth animation */
 }
 
 input[type="range"] {
+  width: 100%;  /* CRITICAL: was missing */
+  height: 6px;
   accent-color: #22c55e;
+  margin: 8px 0;  /* Center vertically */
 }
 
 #lengthValue {
@@ -64,15 +82,25 @@ input[type="range"] {
   color: #22c55e;
 }
 
-.length-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
 .length-value {
   font-weight: bold;
   color: #6fd26f;
   font-size: 1.1rem;
+}
+
+label {
+  display: block;  /* Ensure labels take full width */
+  margin-bottom: 5px;
+}
+
+/* Tablet/Laptop Responsive Fix */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+  
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
 }

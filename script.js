@@ -57,9 +57,16 @@ function generate() {
   }
 
   document.getElementById("generatedPassword").value = password;
-  document.getElementById("copyBtn").style.display = "block";  // ✅ SHOW COPY BUTTON
+  
+  // ✅ ALWAYS RESET COPY BUTTON TO NORMAL
+  const copyBtn = document.getElementById("copyBtn");
+  copyBtn.innerHTML = "📋 Copy";
+  copyBtn.style.background = "#3b82f6";
+  copyBtn.style.display = "block";
 }
 
+
+// ---------- COPY PASSWORD ----------
 // ---------- COPY PASSWORD ----------
 function copyPassword() {
   const passwordField = document.getElementById("generatedPassword");
@@ -67,10 +74,12 @@ function copyPassword() {
   
   if (passwordField.value) {
     navigator.clipboard.writeText(passwordField.value).then(() => {
-      const originalText = copyBtn.innerHTML;
+      // Save original text BEFORE changing
+      const originalText = "📋 Copy";
       copyBtn.innerHTML = "✅ Copied!";
       copyBtn.style.background = "#22c55e";
       
+      // RESET after 2 seconds
       setTimeout(() => {
         copyBtn.innerHTML = originalText;
         copyBtn.style.background = "#3b82f6";
@@ -78,6 +87,7 @@ function copyPassword() {
     });
   }
 }
+
 
 // Show/hide copy button when password changes
 document.getElementById("generatedPassword").addEventListener("input", function() {

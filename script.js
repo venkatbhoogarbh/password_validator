@@ -2,15 +2,11 @@
 const lengthSlider = document.getElementById("length");
 const lengthValue = document.getElementById("lengthValue");
 
-// Display slider value
 function updateLengthValue() {
   lengthValue.textContent = lengthSlider.value;
 }
 
-// Initial display
 updateLengthValue();
-
-// Update on move
 lengthSlider.addEventListener("input", updateLengthValue);
 
 // ---------- PASSWORD STRENGTH ----------
@@ -61,9 +57,9 @@ function generate() {
   }
 
   document.getElementById("generatedPassword").value = password;
-    document.getElementById("copyBtn").style.display = "block";
+  document.getElementById("copyBtn").style.display = "block";  // ✅ SHOW COPY BUTTON
 }
-}
+
 // ---------- COPY PASSWORD ----------
 function copyPassword() {
   const passwordField = document.getElementById("generatedPassword");
@@ -71,7 +67,6 @@ function copyPassword() {
   
   if (passwordField.value) {
     navigator.clipboard.writeText(passwordField.value).then(() => {
-      // Change button text temporarily
       const originalText = copyBtn.innerHTML;
       copyBtn.innerHTML = "✅ Copied!";
       copyBtn.style.background = "#22c55e";
@@ -90,8 +85,7 @@ document.getElementById("generatedPassword").addEventListener("input", function(
   copyBtn.style.display = this.value ? "block" : "none";
 });
 
-
-// ---------- PWA ----------
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js");
-}
+// ---------- PWA ---------- (DISABLED FOR ANDROID APP)
+// if ("serviceWorker" in navigator) {
+//   navigator.serviceWorker.register("sw.js");
+// }

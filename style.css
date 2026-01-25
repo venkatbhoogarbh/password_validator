@@ -54,3 +54,15 @@ button {
   width: 0%;
   border-radius: 5px;
 }
+
+input[type="range"] {
+  width: 100%;
+  margin-top: 10px;
+  accent-color: #22c55e;
+}
+
+#lengthValue {
+  font-weight: bold;
+  color: #22c55e;
+}
+

@@ -2,13 +2,16 @@
 const lengthSlider = document.getElementById("length");
 const lengthValue = document.getElementById("lengthValue");
 
-// Show initial slider value
-lengthValue.textContent = lengthSlider.value;
-
-// Update value when slider moves
-lengthSlider.addEventListener("input", () => {
+// Update slider value display
+function updateLengthValue() {
   lengthValue.textContent = lengthSlider.value;
-});
+}
+
+// Initial load
+updateLengthValue();
+
+// Update on slider move
+lengthSlider.addEventListener("input", updateLengthValue);
 
 // Password strength checker
 const passwordInput = document.getElementById("passwordInput");

@@ -42,3 +42,8 @@ function generate() {
 
   document.getElementById("generatedPassword").value = password;
 }
+
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
